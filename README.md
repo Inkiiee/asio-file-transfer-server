@@ -1,4 +1,4 @@
-# file_trans
+# asio-file-transfer-server
 
 TCP 기반 파일 전송 서버 프로그램입니다. UDP 브로드캐스트를 통한 서버 디스커버리 기능을 포함하고 있습니다.
 
@@ -83,7 +83,7 @@ make
 ## 프로젝트 구조
 
 ```
-file_trans/
+asio-file-transfer-server/
 ├── CMakeLists.txt
 ├── README.md
 ├── include/
