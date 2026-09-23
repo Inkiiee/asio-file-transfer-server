@@ -50,7 +50,6 @@ namespace file_trans{
         FILE_UPLOAD_ACCEPT = 0x001E,
         FILE_UPLOAD_REJECT = 0x001F,
 
-        REQUEST_SYSTEM_COMMAND = 0x0020,
         SYSTEM_COMMAND_SUCCESS = 0x0021,
         SYSTEM_COMMAND_ERROR = 0x0022,
 
