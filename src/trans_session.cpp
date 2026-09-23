@@ -51,8 +51,6 @@ awaitable<void> TransSession::handle_payload(PacketType packet_type, const std::
         co_await handle_file_copy_request(payload);
     else if(packet_type == PacketType::REQUEST_FILE_UPLOAD)
         co_await handle_file_upload_request(payload);
-    else if(packet_type == PacketType::REQUEST_SYSTEM_COMMAND)
-        co_await handle_system_command_request(payload);
     else if(packet_type == PacketType::REQUEST_CURRENT_DIRECTORY)
         co_await handle_current_directory_request(payload);
     else if(packet_type == PacketType::REQUEST_CHANGE_DIRECTORY)
@@ -417,21 +415,6 @@ awaitable<void> TransSession::handle_file_upload_request(const std::vector<uint8
         co_await write_packet(make_string_packet(PacketType::FILE_TRANSFER_ERROR, "Failed to open file for writing"));
         is_uploading = false;
         co_return;
-    }
-}
-awaitable<void> TransSession::handle_system_command_request(const std::vector<uint8_t>& payload){
-    std::cout << "REQUEST_SYSTEM_COMMAND received" << std::endl;
-    std::string command(payload.begin(), payload.end());
-    std::cout <<" * Command: " << command << std::endl;
-
-    int result = system(command.c_str());
-    if(result == 0){
-        co_await write_packet(make_string_packet(PacketType::SYSTEM_COMMAND_SUCCESS, "Command executed successfully"));
-        std::cout << " * Command executed successfully" << std::endl;
-    }
-    else {
-        co_await write_packet(make_string_packet(PacketType::SYSTEM_COMMAND_ERROR, "Command execution failed"));
-        std::cout << " * Command execution failed" << std::endl;
     }
 }
 awaitable<void> TransSession::handle_current_directory_request(const std::vector<uint8_t>& payload){

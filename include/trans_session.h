@@ -87,7 +87,6 @@ namespace file_trans{
         asio::awaitable<void> handle_file_move_request(const std::vector<uint8_t>& payload);
         asio::awaitable<void> handle_file_copy_request(const std::vector<uint8_t>& payload);
         asio::awaitable<void> handle_file_upload_request(const std::vector<uint8_t>& payload);
-        asio::awaitable<void> handle_system_command_request(const std::vector<uint8_t>& payload);
         asio::awaitable<void> handle_current_directory_request(const std::vector<uint8_t>& payload);
         asio::awaitable<void> handle_change_directory_request(const std::vector<uint8_t>& payload);
         asio::awaitable<void> handle_file_transfer_data(const std::vector<uint8_t>& payload);
