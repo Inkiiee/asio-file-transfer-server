@@ -11,7 +11,6 @@ TCP 기반 파일 전송 서버 프로그램입니다. UDP 브로드캐스트를
 - **파일 다운로드/업로드** — 클라이언트의 요청에 따라 파일 전송
 - **파일 관리** — 파일 목록 조회, 정보 조회, 삭제, 이름 변경, 이동, 복사
 - **디렉토리 관리** — 디렉토리 생성, 현재 디렉토리 조회/변경
-- **시스템 명령 실행** — 원격 시스템 명령 실행
 - **UDP 브로드캐스트 디스커버리** — 클라이언트가 네트워크 내 서버를 자동으로 검색
 - **Heartbeat** — 연결 상태 유지 확인
 
@@ -75,7 +74,6 @@ make
 | 0x0017 | REQUEST_FILE_MOVE | 파일 이동 요청 |
 | 0x001A | REQUEST_FILE_COPY | 파일 복사 요청 |
 | 0x001D | REQUEST_FILE_UPLOAD | 파일 업로드 요청 |
-| 0x0020 | REQUEST_SYSTEM_COMMAND | 시스템 명령 실행 요청 |
 | 0x0023 | REQUEST_CURRENT_DIRECTORY | 현재 디렉토리 조회 |
 | 0x0025 | REQUEST_CHANGE_DIRECTORY | 디렉토리 변경 요청 |
 
